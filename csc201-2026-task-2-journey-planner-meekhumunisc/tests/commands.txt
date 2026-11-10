@@ -1,0 +1,51 @@
+# CSC201 Task 2 -- command file.
+#
+# One call per line: the method name followed by its arguments, separated by
+# spaces. Blank lines and lines starting with # are ignored. Station ids are
+# written without quotes.
+#
+#   getStationRank     <k>
+#   getBusiestHour     <stationId>
+#   getDirectServices  <fromStationId> <toStationId>
+#   getStationsAtHops  <stationId> <hops>
+#   getItinerary       <fromStationId> <toStationId> <departAfter>
+#   getItineraryM1     <fromStationId> <toStationId> <departAfter>
+#   getItineraryM2     <fromStationId> <toStationId> <departAfter>
+#
+# These are the sample queries from the task sheet. Their expected output is
+# in tests/expected_samples.txt. Marking will use a different command file.
+
+getStationRank 1
+getStationRank 2
+getStationRank 5
+getStationRank 20
+getStationRank 131
+getStationRank 171
+getStationRank 200
+
+getBusiestHour 127
+getBusiestHour 701
+getBusiestHour S31
+getBusiestHour ZZZ
+
+getDirectServices 629 635
+getDirectServices 127 D43
+getDirectServices 101 113
+getDirectServices 127 S31
+getDirectServices 127 127
+getDirectServices 127 ZZZ
+
+getStationsAtHops 127 0
+getStationsAtHops 127 1
+getStationsAtHops 127 3
+getStationsAtHops 127 8
+getStationsAtHops S31 2
+getStationsAtHops S31 25
+
+getItinerary 420 405 28800
+getItinerary M12 L16 28800
+getItinerary 127 G26 61200
+getItinerary A11 129 46140
+getItinerary 127 D43 84600
+getItinerary 127 127 28800
+getItinerary 101 S31 28800

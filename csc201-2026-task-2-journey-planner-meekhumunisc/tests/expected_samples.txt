@@ -1,0 +1,108 @@
+>>> getStationRank(1)
+Rank 1: 1 station(s) with 4008 departure(s).
+Station(s) include: [Times Sq-42 St (127)]
+>>> getStationRank(2)
+Rank 2: 1 station(s) with 2798 departure(s).
+Station(s) include: [14 St-Union Sq (635)]
+>>> getStationRank(5)
+Rank 5: 1 station(s) with 2222 departure(s).
+Station(s) include: [14 St (132)]
+>>> getStationRank(20)
+Rank 20: 2 station(s) with 1307 departure(s).
+Station(s) include: [51 St (630), Jay St-MetroTech (A41)]
+>>> getStationRank(131)
+Rank 131: 15 station(s) with 298 departure(s).
+Station(s) include: [21 St (G24), Greenpoint Av (G26), Nassau Av (G28), Broadway (G30), Flushing Av (G31), Myrtle-Willoughby Avs (G32), Bedford-Nostrand Avs (G33), Classon Av (G34), Clinton-Washington Avs (G35), Fulton St (G36)]
+>>> getStationRank(171)
+Rank 171: 1 station(s) with 63 departure(s).
+Station(s) include: [Tottenville (S09)]
+>>> getStationRank(200)
+Rank 200 does not exist.
+>>> getBusiestHour("127")
+Busiest hour at Times Sq-42 St (127) is 08:00-09:00 with 280 departure(s).
+>>> getBusiestHour("701")
+Busiest hour at Flushing-Main St (701) is 07:00-08:00 with 20 departure(s).
+>>> getBusiestHour("S31")
+Busiest hour at St George (S31) is 07:00-08:00 with 8 departure(s).
+>>> getBusiestHour("ZZZ")
+Unknown station 'ZZZ'.
+>>> getDirectServices("629","635")
+Direct service 59 St (629) -> 14 St-Union Sq (635): 1122 service(s) on route(s) 4/5/6/6X/N/Q/R/W, min 360s, max 900s.
+>>> getDirectServices("127","D43")
+Direct service Times Sq-42 St (127) -> Coney Island-Stillwell Av (D43): 299 service(s) on route(s) N/Q, min 3030s, max 4080s.
+>>> getDirectServices("101","113")
+Direct service Van Cortlandt Park-242 St (101) -> 157 St (113): 210 service(s) on route(s) 1, min 900s, max 1080s.
+>>> getDirectServices("127","S31")
+No direct service from Times Sq-42 St (127) to St George (S31).
+>>> getDirectServices("127","127")
+No direct service from Times Sq-42 St (127) to Times Sq-42 St (127).
+>>> getDirectServices("127","ZZZ")
+Unknown station 'ZZZ'.
+>>> getStationsAtHops("127",0)
+Total number of stations exactly 0 hop(s) from Times Sq-42 St (127): 1
+>>> getStationsAtHops("127",1)
+Total number of stations exactly 1 hop(s) from Times Sq-42 St (127): 12
+>>> getStationsAtHops("127",3)
+Total number of stations exactly 3 hop(s) from Times Sq-42 St (127): 32
+>>> getStationsAtHops("127",8)
+Total number of stations exactly 8 hop(s) from Times Sq-42 St (127): 44
+>>> getStationsAtHops("S31",2)
+Total number of stations exactly 2 hop(s) from St George (S31): 3
+>>> getStationsAtHops("S31",25)
+Total number of stations exactly 25 hop(s) from St George (S31): 0
+>>> getItinerary("420","405",28800)
+[getItineraryM1]
+Itinerary from Bowling Green (420) to Bedford Park Blvd-Lehman College (405) departing 08:00:00: 2 leg(s), 1 transfer(s), arriving 08:54:00.
+  Leg 1: route 4 service 1634 depart Bowling Green (420) 08:04:00 arrive 149 St-Hostos (222) 08:33:30
+  Leg 2: route 4 service 1658 depart 149 St-Hostos (222) 08:36:30 arrive Bedford Park Blvd-Lehman College (405) 08:54:00
+[getItineraryM2]
+Itinerary from Bowling Green (420) to Bedford Park Blvd-Lehman College (405) departing 08:00:00: 1 leg(s), 0 transfer(s), arriving 08:54:00.
+  Leg 1: route 4 service 1658 depart Bowling Green (420) 08:07:00 arrive Bedford Park Blvd-Lehman College (405) 08:54:00
+>>> getItinerary("M12","L16",28800)
+[getItineraryM1]
+Itinerary from Flushing Av (M12) to DeKalb Av (L16) departing 08:00:00: 2 leg(s), 1 transfer(s), arriving 08:18:30.
+  Leg 1: route M service 1287 depart Flushing Av (M12) 08:06:00 arrive Myrtle-Wyckoff Avs (L17) 08:12:30
+  Leg 2: route L service 1757 depart Myrtle-Wyckoff Avs (L17) 08:17:00 arrive DeKalb Av (L16) 08:18:30
+[getItineraryM2]
+Itinerary from Flushing Av (M12) to DeKalb Av (L16) departing 08:00:00: 2 leg(s), 1 transfer(s), arriving 08:18:30.
+  Leg 1: route M service 1287 depart Flushing Av (M12) 08:06:00 arrive Myrtle-Wyckoff Avs (L17) 08:12:30
+  Leg 2: route L service 1757 depart Myrtle-Wyckoff Avs (L17) 08:17:00 arrive DeKalb Av (L16) 08:18:30
+>>> getItinerary("127","G26",61200)
+[getItineraryM1]
+Itinerary from Times Sq-42 St (127) to Greenpoint Av (G26) departing 17:00:00: 2 leg(s), 1 transfer(s), arriving 17:25:00.
+  Leg 1: route E service 5679 depart Times Sq-42 St (127) 17:03:00 arrive Court Sq (719) 17:12:00
+  Leg 2: route G service 5963 depart Court Sq (719) 17:21:00 arrive Greenpoint Av (G26) 17:25:00
+[getItineraryM2]
+Itinerary from Times Sq-42 St (127) to Greenpoint Av (G26) departing 17:00:00: 2 leg(s), 1 transfer(s), arriving 17:25:00.
+  Leg 1: route E service 5679 depart Times Sq-42 St (127) 17:03:00 arrive Court Sq (719) 17:12:00
+  Leg 2: route G service 5963 depart Court Sq (719) 17:21:00 arrive Greenpoint Av (G26) 17:25:00
+>>> getItinerary("A11","129",46140)
+[getItineraryM1]
+Itinerary from 155 St (A11) to 28 St (129) departing 12:49:00: 3 leg(s), 2 transfer(s), arriving 13:20:00.
+  Leg 1: route C service 3941 depart 155 St (A11) 12:54:30 arrive 125 St (A15) 13:00:00
+  Leg 2: route A service 3911 depart 125 St (A15) 13:03:30 arrive Times Sq-42 St (127) 13:14:00
+  Leg 3: route 1 service 3847 depart Times Sq-42 St (127) 13:17:00 arrive 28 St (129) 13:20:00
+[getItineraryM2]
+Itinerary from 155 St (A11) to 28 St (129) departing 12:49:00: 3 leg(s), 2 transfer(s), arriving 13:20:00.
+  Leg 1: route C service 3464 depart 155 St (A11) 12:49:00 arrive 168 St-Washington Hts (112) 12:52:00
+  Leg 2: route A service 3911 depart 168 St-Washington Hts (112) 12:56:30 arrive Times Sq-42 St (127) 13:14:00
+  Leg 3: route 1 service 3847 depart Times Sq-42 St (127) 13:17:00 arrive 28 St (129) 13:20:00
+>>> getItinerary("127","D43",84600)
+[getItineraryM1]
+Itinerary from Times Sq-42 St (127) to Coney Island-Stillwell Av (D43) departing 23:30:00: 2 leg(s), 1 transfer(s), arriving 24:33:30.
+  Leg 1: route N service 8247 depart Times Sq-42 St (127) 23:32:00 arrive Canal St (639) 23:43:00
+  Leg 2: route Q service 8295 depart Canal St (639) 23:49:00 arrive Coney Island-Stillwell Av (D43) 24:33:30
+[getItineraryM2]
+Itinerary from Times Sq-42 St (127) to Coney Island-Stillwell Av (D43) departing 23:30:00: 2 leg(s), 1 transfer(s), arriving 24:33:30.
+  Leg 1: route N service 8063 depart Times Sq-42 St (127) 23:30:00 arrive 49 St (R15) 23:31:30
+  Leg 2: route Q service 8295 depart 49 St (R15) 23:36:00 arrive Coney Island-Stillwell Av (D43) 24:33:30
+>>> getItinerary("127","127",28800)
+[getItineraryM1]
+Already at Times Sq-42 St (127) at 08:00:00; no journey required.
+[getItineraryM2]
+Already at Times Sq-42 St (127) at 08:00:00; no journey required.
+>>> getItinerary("101","S31",28800)
+[getItineraryM1]
+No journey from Van Cortlandt Park-242 St (101) to St George (S31) departing at or after 08:00:00.
+[getItineraryM2]
+No journey from Van Cortlandt Park-242 St (101) to St George (S31) departing at or after 08:00:00.
